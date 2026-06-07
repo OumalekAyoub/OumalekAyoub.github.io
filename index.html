@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Ayoub Oumalek">
+<meta name="copyright" content="© 2025 Ayoub Oumalek. All rights reserved.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Ayoub Oumalek — Senior AI Engineer">
+<meta property="og:description" content="Senior AI Engineer portfolio — AI agents, data engineering, full-stack, and BI.">
+<meta property="og:type" content="website">
+<title>Ayoub Oumalek — Senior AI Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Outfit:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#08080A;--bg2:#0C0C0F;--card:#131316;--card-h:#18181C;
+  --border:#222226;--bh:#38383F;
+  --ind:#6366F1;--i10:rgba(99,102,241,.1);--i20:rgba(99,102,241,.18);
+  --amb:#F59E0B;--a10:rgba(245,158,11,.1);
+  --grn:#22C55E;--g10:rgba(34,197,94,.1);
+  --pur:#A78BFA;--p10:rgba(167,139,250,.1);
+  --rose:#FB7185;--r10:rgba(251,113,133,.1);
+  --txt:#F4F4F6;--dim:#8A8A96;--dmr:#44444C;
+  --ff:'Outfit',sans-serif;--ffd:'Bricolage Grotesque',sans-serif;--ffm:'Fira Code',monospace;
+  --nav:68px;--rr:12px;--rs:8px
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:var(--ff);font-size:17px;line-height:1.65;overflow-x:hidden;-webkit-user-select:none;user-select:none}
+a,button,input,textarea,.cl2,.ct,footer a{-webkit-user-select:text;user-select:text}
+::selection{background:var(--i20);color:#A5B4FC}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--bh);border-radius:2px}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 52px;transition:.3s}
+nav.sc{background:rgba(8,8,10,.93);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nl{font-family:var(--ffd);font-weight:800;font-size:1.2rem;color:var(--txt);text-decoration:none;letter-spacing:-.03em}
+.nl em{font-style:normal;color:var(--ind)}
+.nv{display:flex;gap:28px;list-style:none}
+.nv a{font-size:.92rem;font-weight:500;color:var(--dim);text-decoration:none;transition:color .2s}
+.nv a:hover{color:var(--txt)}
+.nc{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;background:var(--ind);color:#fff;font-weight:600;font-size:.92rem;border-radius:var(--rs);text-decoration:none;transition:.2s;font-family:var(--ff)}
+.nc:hover{background:#4F46E5;transform:translateY(-1px)}
+
+/* ── HERO ── */
+#hero{min-height:100vh;display:flex;align-items:center;padding:var(--nav) 52px 0;position:relative;overflow:hidden}
+#hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1.5px 1.5px,rgba(99,102,241,.055) 1.5px,transparent 0);background-size:28px 28px}
+#hero::after{content:'';position:absolute;top:-140px;right:-100px;width:520px;height:520px;background:radial-gradient(circle,rgba(99,102,241,.07) 0%,transparent 65%);pointer-events:none}
+.hi{position:relative;z-index:1;width:100%;display:grid;grid-template-columns:1fr 420px;gap:64px;align-items:center;max-width:1120px;margin:0 auto}
+.h-lbl{font-family:var(--ffm);font-size:.74rem;color:var(--ind);letter-spacing:.15em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;animation:fD .7s ease both}
+.h-lbl::after{content:'';width:30px;height:1px;background:var(--ind)}
+.h-name{font-family:var(--ffd);font-weight:800;font-size:clamp(3.6rem,7vw,7rem);line-height:.93;letter-spacing:-.04em;margin-bottom:20px;animation:fU .8s ease .12s both}
+.h-name .s{color:var(--txt)}.h-name .o{color:transparent;-webkit-text-stroke:2px var(--ind)}
+.h-domains{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;animation:fU .8s ease .22s both}
+.h-domain{font-family:var(--ffm);font-size:.82rem;padding:5px 12px;border-radius:100px;font-weight:500;letter-spacing:.03em}
+.hd-ai{background:var(--i10);color:#A5B4FC;border:1px solid rgba(99,102,241,.25)}
+.hd-de{background:var(--a10);color:#FCD34D;border:1px solid rgba(245,158,11,.25)}
+.hd-sw{background:var(--g10);color:#86EFAC;border:1px solid rgba(34,197,94,.25)}
+.hd-viz{background:var(--p10);color:#C4B5FD;border:1px solid rgba(167,139,250,.25)}
+.h-desc{font-size:1.12rem;color:var(--dim);line-height:1.8;max-width:490px;margin-bottom:32px;animation:fU .8s ease .32s both}
+.h-desc strong{color:var(--txt);font-weight:500}
+.h-acts{display:flex;gap:11px;flex-wrap:wrap;animation:fU .8s ease .42s both}
+.bf{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;background:var(--ind);color:#fff;font-weight:600;font-size:1rem;border-radius:var(--rs);text-decoration:none;transition:.2s;font-family:var(--ff);box-shadow:0 4px 20px rgba(99,102,241,.22)}
+.bf:hover{background:#4F46E5;transform:translateY(-2px);box-shadow:0 6px 28px rgba(99,102,241,.32)}
+.bg{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border:1px solid var(--bh);color:var(--dim);font-weight:500;font-size:1rem;border-radius:var(--rs);text-decoration:none;transition:.2s;font-family:var(--ff)}
+.bg:hover{border-color:var(--ind);color:var(--txt);transform:translateY(-2px)}
+
+/* TERMINAL */
+.term{background:var(--card);border:1px solid var(--border);border-radius:var(--rr);overflow:hidden;animation:fU .9s ease .52s both;box-shadow:0 28px 72px rgba(0,0,0,.65)}
+.tbar{background:#111114;padding:11px 14px;display:flex;align-items:center;gap:7px;border-bottom:1px solid var(--border)}
+.td{width:11px;height:11px;border-radius:50%}.td.r{background:#FF5F57}.td.y{background:#FEBC2E}.td.g{background:#28C840}
+.tf{font-family:var(--ffm);font-size:.65rem;color:var(--dmr);margin-left:auto}
+.tbody{padding:18px 20px;font-family:var(--ffm);font-size:.84rem;line-height:2;min-height:256px}
+.tp{color:var(--ind)}.tc{color:var(--txt)}.to{color:var(--dim)}
+.tog{color:var(--grn)}.toa{color:#FCD34D}.top{color:#C4B5FD}
+.tcur{display:inline-block;width:7px;height:12px;background:var(--ind);animation:bl 1s step-end infinite;vertical-align:middle}
+
+/* ── SHARED ── */
+section{padding:108px 0}
+.con{max-width:1120px;margin:0 auto;padding:0 52px}
+.sn{font-family:var(--ffm);font-size:.72rem;color:var(--ind);letter-spacing:.15em;text-transform:uppercase;display:block;margin-bottom:8px}
+.st{font-family:var(--ffd);font-weight:800;font-size:clamp(1.8rem,3.8vw,2.8rem);color:var(--txt);letter-spacing:-.035em;line-height:1.05;margin-bottom:10px}
+.ss{color:var(--dim);font-size:1.08rem;max-width:500px;line-height:1.8;margin-bottom:54px}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .6s,transform .6s}
+.rv.vi{opacity:1;transform:translateY(0)}
+
+/* ── EXPERTISE ── */
+#expertise{background:var(--bg2)}
+.eg{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.ec{border-radius:var(--rr);padding:0;overflow:hidden;transition:.3s;cursor:default;position:relative}
+.ec:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.5)}
+.ec-top{padding:28px 28px 0}
+.ec-num{font-family:var(--ffm);font-size:.72rem;letter-spacing:.1em;margin-bottom:18px;opacity:.7}
+.ec-head{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.ec-icon{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ec-title{font-family:var(--ffd);font-weight:700;font-size:1.28rem;color:var(--txt);letter-spacing:-.02em}
+.ec-sub{font-size:.9rem;color:var(--dim);margin-top:1px}
+.ec-list{list-style:none;display:flex;flex-direction:column;gap:7px;padding:0 28px 22px}
+.ec-list li{font-size:.96rem;color:var(--dim);line-height:1.6;display:flex;align-items:flex-start;gap:9px}
+.ec-list li::before{content:'';width:4px;height:4px;border-radius:50%;margin-top:.55em;flex-shrink:0}
+.ec-foot{padding:18px 28px;border-top:1px solid rgba(255,255,255,.05);display:flex;flex-wrap:wrap;gap:6px}
+.ec-tag{font-size:.82rem;padding:3px 9px;border-radius:5px;font-family:var(--ffm)}
+
+/* AI card */
+.ec.ai{background:linear-gradient(135deg,#111120 0%,#0f0f1a 100%);border:1px solid rgba(99,102,241,.2)}
+.ec.ai:hover{border-color:rgba(99,102,241,.4)}
+.ec.ai .ec-num{color:var(--ind)}
+.ec.ai .ec-icon{background:var(--i10);color:var(--ind)}
+.ec.ai .ec-list li::before{background:var(--ind)}
+.ec.ai .ec-tag{background:var(--i10);color:#A5B4FC;border:1px solid rgba(99,102,241,.2)}
+
+/* Data Eng card */
+.ec.de{background:linear-gradient(135deg,#121008 0%,#0f0d06 100%);border:1px solid rgba(245,158,11,.18)}
+.ec.de:hover{border-color:rgba(245,158,11,.35)}
+.ec.de .ec-num{color:var(--amb)}
+.ec.de .ec-icon{background:var(--a10);color:var(--amb)}
+.ec.de .ec-list li::before{background:var(--amb)}
+.ec.de .ec-tag{background:var(--a10);color:#FCD34D;border:1px solid rgba(245,158,11,.2)}
+
+/* Software card */
+.ec.sw{background:linear-gradient(135deg,#09120D 0%,#070E09 100%);border:1px solid rgba(34,197,94,.18)}
+.ec.sw:hover{border-color:rgba(34,197,94,.35)}
+.ec.sw .ec-num{color:var(--grn)}
+.ec.sw .ec-icon{background:var(--g10);color:var(--grn)}
+.ec.sw .ec-list li::before{background:var(--grn)}
+.ec.sw .ec-tag{background:var(--g10);color:#86EFAC;border:1px solid rgba(34,197,94,.2)}
+
+/* Viz card */
+.ec.vz{background:linear-gradient(135deg,#100D1A 0%,#0D0B14 100%);border:1px solid rgba(167,139,250,.18)}
+.ec.vz:hover{border-color:rgba(167,139,250,.35)}
+.ec.vz .ec-num{color:var(--pur)}
+.ec.vz .ec-icon{background:var(--p10);color:var(--pur)}
+.ec.vz .ec-list li::before{background:var(--pur)}
+.ec.vz .ec-tag{background:var(--p10);color:#C4B5FD;border:1px solid rgba(167,139,250,.2)}
+
+/* ── HOW I WORK ── */
+.hw{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+.hw-card{background:var(--card);border:1px solid var(--border);border-radius:var(--rr);padding:26px}
+.hw-step{font-family:var(--ffm);font-size:.72rem;color:var(--ind);letter-spacing:.12em;margin-bottom:14px}
+.hw-t{font-family:var(--ffd);font-weight:700;font-size:1.18rem;color:var(--txt);letter-spacing:-.02em;margin-bottom:9px}
+.hw-d{font-size:.98rem;color:var(--dim);line-height:1.7}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:80px;align-items:start}
+.ac p{color:var(--dim);font-size:1.08rem;line-height:1.82;margin-bottom:16px}
+.ac p strong{color:var(--txt);font-weight:600}
+.aright{display:flex;flex-direction:column;gap:14px}
+.ib{background:var(--card);border:1px solid var(--border);border-radius:var(--rr);padding:20px 22px}
+.ibl{font-family:var(--ffm);font-size:.72rem;color:var(--ind);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:7px}
+.clist{display:flex;flex-direction:column;gap:7px}
+.ci{font-size:.94rem;color:var(--dim);display:flex;align-items:center;gap:8px}
+.ci::before{content:'';width:3px;height:3px;border-radius:50%;background:var(--ind);flex-shrink:0}
+.llist{display:flex;gap:7px;flex-wrap:wrap}
+.ltag{font-size:.88rem;padding:4px 11px;background:var(--i10);border:1px solid rgba(99,102,241,.2);border-radius:100px;color:#A5B4FC}
+.hlist{display:flex;gap:7px;flex-wrap:wrap}
+.htag{font-size:.88rem;padding:4px 11px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:100px;color:var(--dim)}
+
+/* ── EXPERIENCE ── */
+.tl{position:relative}
+.tll{position:absolute;left:0;top:6px;bottom:6px;width:1px;background:linear-gradient(to bottom,var(--ind) 0%,var(--pur) 55%,var(--border) 100%)}
+.tli{display:flex;margin-bottom:34px;padding-left:26px;position:relative}
+.tldw{position:absolute;left:-6px;top:22px}
+.tld{width:13px;height:13px;border-radius:50%;border:2px solid var(--ind);background:var(--bg)}
+.tld.on{background:var(--ind);box-shadow:0 0 12px rgba(99,102,241,.4)}
+.tld.am{border-color:var(--amb)}.tld.pu{border-color:var(--pur)}
+.tld.gr{border-color:var(--grn)}.tld.dm{border-color:var(--dmr)}
+.tlc{background:var(--card);border:1px solid var(--border);border-radius:var(--rr);padding:22px 26px;flex:1;transition:.25s}
+.tlc:hover{border-color:var(--bh);background:var(--card-h)}
+.jh{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:3px;flex-wrap:wrap}
+.jt{font-family:var(--ffd);font-weight:700;font-size:1.12rem;color:var(--txt)}
+.jp{font-family:var(--ffm);font-size:.72rem;color:var(--dmr);background:rgba(255,255,255,.04);padding:3px 9px;border-radius:100px;white-space:nowrap;flex-shrink:0;border:1px solid var(--border)}
+.jc{font-size:.96rem;color:var(--ind);font-weight:500;margin-bottom:2px}
+.jl{font-size:.86rem;color:var(--dmr);margin-bottom:13px;display:flex;align-items:center;gap:5px}
+.jb{list-style:none;display:flex;flex-direction:column;gap:5px}
+.jb li{font-size:.97rem;color:var(--dim);line-height:1.65;padding-left:14px;position:relative}
+.jb li::before{content:'—';position:absolute;left:0;color:var(--ind);font-size:.75em;top:.15em}
+
+/* ── SKILLS ── */
+#skills{background:var(--bg2)}
+.sk-table{border-top:1px solid var(--border)}
+.sk-row{display:grid;grid-template-columns:200px 1fr;gap:28px;padding:22px 0;border-bottom:1px solid var(--border);align-items:start}
+.sk-cat{font-family:var(--ffm);font-size:.8rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;padding-top:3px;display:flex;align-items:flex-start;gap:9px}
+.sk-dot{width:6px;height:6px;border-radius:50%;margin-top:3px;flex-shrink:0}
+.sk-tags{display:flex;flex-wrap:wrap;gap:6px}
+.sk-tag{font-size:.92rem;padding:4px 11px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:6px;color:var(--dim);transition:.15s;cursor:default}
+.sk-tag:hover{border-color:var(--bh);color:var(--txt)}
+
+/* ── PROJECTS ── */
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pc{background:var(--card);border:1px solid var(--border);border-radius:var(--rr);padding:26px;transition:.25s;position:relative;overflow:hidden}
+.pc::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(99,102,241,.06) 0%,transparent 55%);opacity:0;transition:opacity .4s}
+.pc:hover::before{opacity:1}
+.pc:hover{border-color:var(--bh);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.pn{font-family:var(--ffm);font-size:.72rem;color:var(--dmr);letter-spacing:.1em;margin-bottom:14px}
+.pt{font-family:var(--ffd);font-weight:700;font-size:1.14rem;color:var(--txt);letter-spacing:-.02em;margin-bottom:9px}
+.pd{font-size:.96rem;color:var(--dim);line-height:1.7;margin-bottom:18px}
+.ptg{display:flex;flex-wrap:wrap;gap:5px}
+.ptk{font-size:.8rem;padding:3px 8px;background:var(--p10);border:1px solid rgba(167,139,250,.18);border-radius:5px;color:var(--pur)}
+
+/* ── CONTACT ── */
+#contact{background:var(--bg2)}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.ccp p{color:var(--dim);font-size:1.08rem;line-height:1.8;margin-bottom:28px}
+.clinks{display:flex;flex-direction:column;gap:9px}
+.cl2{display:flex;align-items:center;gap:13px;padding:14px 16px;background:var(--card);border:1px solid var(--border);border-radius:var(--rs);text-decoration:none;color:var(--dim);font-size:.96rem;transition:.22s}
+.cl2:hover{border-color:var(--ind);color:var(--txt);background:var(--i10);transform:translateX(4px)}
+.ci2{width:35px;height:35px;background:var(--i10);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--ind);transition:.2s}
+.cl2:hover .ci2{background:var(--ind);color:#fff}
+.ct strong{display:block;font-weight:600;font-size:.96rem;color:var(--txt)}
+.ct span{font-size:.86rem;color:var(--dmr)}
+.cn{background:var(--card);border:1px solid var(--border);border-radius:var(--rr);padding:34px}
+.cn h3{font-family:var(--ffd);font-weight:800;font-size:1.5rem;color:var(--txt);margin-bottom:12px;letter-spacing:-.03em}
+.cn p{color:var(--dim);font-size:1.04rem;line-height:1.75;margin-bottom:26px}
+.avail{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;background:var(--g10);border:1px solid rgba(34,197,94,.22);border-radius:100px;font-size:.86rem;color:var(--grn);font-family:var(--ffm);margin-bottom:22px}
+.adot{width:6px;height:6px;background:var(--grn);border-radius:50%;animation:pu 2s ease-in-out infinite}
+
+/* ── FOOTER ── */
+footer{padding:30px 52px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer p{color:var(--dmr);font-size:.75rem;font-family:var(--ffm)}
+footer span{color:var(--ind)}
+.fl{display:flex;gap:18px}
+.fl a{color:var(--dmr);font-size:.75rem;text-decoration:none;transition:color .2s}
+.fl a:hover{color:var(--txt)}
+
+@keyframes fD{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fU{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes pu{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.75)}}
+
+@media(max-width:1024px){
+  .hi{grid-template-columns:1fr}.term{display:none}
+  .eg{grid-template-columns:1fr}
+  .about-grid,.cg{grid-template-columns:1fr;gap:44px}
+  .pg{grid-template-columns:1fr 1fr}
+  .sk-row{grid-template-columns:160px 1fr}
+}
+@media(max-width:768px){
+  nav{padding:0 20px}.nv{display:none}
+  #hero{padding:var(--nav) 20px 0}
+  .con{padding:0 20px}
+  .pg{grid-template-columns:1fr}
+  .sk-row{grid-template-columns:1fr;gap:10px}
+  section{padding:80px 0}
+  footer{padding:24px 20px}
+}
+</style>
+</head>
+<body>
+<!-- © 2025 Ayoub Oumalek. Portfolio design and code. All rights reserved. -->
+
+<!-- NAV -->
+<nav id="nb">
+  <a href="#hero" class="nl">AO<em>.</em></a>
+  <ul class="nv">
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#howiwork">How I Work</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:ayoub.oumalek.dz@gmail.com" class="nc">
+    <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    Hire Me
+  </a>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hi">
+    <div>
+      <p class="h-lbl">Bridging Business &amp; Technology · Casablanca, Morocco</p>
+      <h1 class="h-name"><span class="s">Ayoub</span><br><span class="o">Oumalek.</span></h1>
+      <div class="h-domains">
+        <span class="h-domain hd-ai">AI Engineering</span>
+        <span class="h-domain hd-de">Data Engineering</span>
+        <span class="h-domain hd-sw">Software Engineering</span>
+        <span class="h-domain hd-viz">Data Visualization</span>
+      </div>
+      <p class="h-desc">
+        Senior AI Engineer who works at the intersection of <strong>business and technology</strong> — translating real business problems into AI systems that deliver. At <strong>TELUS Digital</strong> I build autonomous agents and LLM copilots, architect data pipelines, and ship the tools that turn complex data into decisions stakeholders can act on.
+      </p>
+      <div class="h-acts">
+        <a href="#expertise" class="bf">Explore My Work <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="#contact" class="bg"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Get In Touch</a>
+      </div>
+    </div>
+
+    <!-- TERMINAL showing all 4 domains -->
+    <div class="term">
+      <div class="tbar">
+        <span class="td r"></span><span class="td y"></span><span class="td g"></span>
+        <span class="tf">ayoub@portfolio:~</span>
+      </div>
+      <div class="tbody" id="tb"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPERTISE ── -->
+<section id="expertise">
+  <div class="con">
+    <div class="rv">
+      <span class="sn">01 — Expertise</span>
+      <h2 class="st">Four domains.<br>Production depth in each.</h2>
+      <p class="ss">Not a generalist who dabbles — a practitioner who has shipped in all four domains, often in the same project.</p>
+    </div>
+    <div class="eg">
+
+      <!-- AI Engineering -->
+      <div class="ec ai rv">
+        <div class="ec-top">
+          <div class="ec-num">01 — AI ENGINEERING</div>
+          <div class="ec-head">
+            <div class="ec-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="2" x2="9" y2="4"/><line x1="15" y1="2" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="22"/><line x1="15" y1="20" x2="15" y2="22"/><line x1="2" y1="9" x2="4" y2="9"/><line x1="2" y1="15" x2="4" y2="15"/><line x1="20" y1="9" x2="22" y2="9"/><line x1="20" y1="15" x2="22" y2="15"/></svg>
+            </div>
+            <div><div class="ec-title">AI Engineering</div><div class="ec-sub">Agents · LLMs · RAG Systems</div></div>
+          </div>
+          <ul class="ec-list">
+            <li>Designing and deploying autonomous AI agents and copilots in production at TELUS Digital</li>
+            <li>Building retrieval-augmented (RAG) systems and multi-step agent workflows with LangChain and LangGraph</li>
+            <li>Optimizing LLM outputs with few-shot, chain-of-thought, and retrieval-augmented prompting</li>
+            <li>Integrating AI systems with CRM and backend platforms via REST APIs for live automation</li>
+            <li>Deep learning research on Vision Transformers (Sorbonne) and generative AI (University of Luxembourg)</li>
+          </ul>
+        </div>
+        <div class="ec-foot">
+          <span class="ec-tag">AI Agents</span><span class="ec-tag">LangChain</span><span class="ec-tag">LangGraph</span>
+          <span class="ec-tag">RAG</span><span class="ec-tag">OpenAI APIs</span>
+          <span class="ec-tag">Prompt Engineering</span>
+        </div>
+      </div>
+
+      <!-- Data Engineering -->
+      <div class="ec de rv" style="transition-delay:.08s">
+        <div class="ec-top">
+          <div class="ec-num">02 — DATA ENGINEERING</div>
+          <div class="ec-head">
+            <div class="ec-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            </div>
+            <div><div class="ec-title">Data Engineering</div><div class="ec-sub">ETL · Pipelines · Cloud Data</div></div>
+          </div>
+          <ul class="ec-list">
+            <li>Architecting large-scale ETL pipelines ingesting from APIs, web scraping, and CRM systems</li>
+            <li>Cloud-native data stacks on Snowflake and Databricks at production scale</li>
+            <li>Data modeling, preprocessing, and quality assurance for enterprise data platforms</li>
+            <li>Building and maintaining web scraping systems for high-quality multi-source data</li>
+            <li>Integrating data pipelines with AI analytics tools for real-time decision-making</li>
+          </ul>
+        </div>
+        <div class="ec-foot">
+          <span class="ec-tag">Snowflake</span><span class="ec-tag">Databricks</span><span class="ec-tag">Python</span>
+          <span class="ec-tag">ETL Pipelines</span><span class="ec-tag">Web Scraping</span>
+          <span class="ec-tag">Data Modeling</span><span class="ec-tag">REST APIs</span>
+        </div>
+      </div>
+
+      <!-- Software Engineering -->
+      <div class="ec sw rv" style="transition-delay:.16s">
+        <div class="ec-top">
+          <div class="ec-num">03 — SOFTWARE ENGINEERING</div>
+          <div class="ec-head">
+            <div class="ec-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <div><div class="ec-title">Software Engineering</div><div class="ec-sub">Full-Stack · APIs · Systems</div></div>
+          </div>
+          <ul class="ec-list">
+            <li>Full-stack applications with Vue.js frontends and Django / FastAPI / Flask backends</li>
+            <li>Shipped a global shipping platform with live tracking, payments, and real-time communication</li>
+            <li>REST API architecture and CRM integrations across enterprise systems</li>
+            <li>Cloud deployment with Docker and DigitalOcean; PostgreSQL database design and optimization</li>
+            <li>Building production tools and internal apps that non-technical teams use independently</li>
+          </ul>
+        </div>
+        <div class="ec-foot">
+          <span class="ec-tag">Django</span><span class="ec-tag">FastAPI</span><span class="ec-tag">Vue.js</span>
+          <span class="ec-tag">PostgreSQL</span><span class="ec-tag">REST APIs</span>
+          <span class="ec-tag">Docker</span><span class="ec-tag">DigitalOcean</span>
+        </div>
+      </div>
+
+      <!-- Visualization -->
+      <div class="ec vz rv" style="transition-delay:.24s">
+        <div class="ec-top">
+          <div class="ec-num">04 — DATA VISUALIZATION</div>
+          <div class="ec-head">
+            <div class="ec-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            </div>
+            <div><div class="ec-title">Data Visualization</div><div class="ec-sub">BI Dashboards · Analytics Apps</div></div>
+          </div>
+          <ul class="ec-list">
+            <li>Building interactive, low-latency KPI dashboards in Power BI, Tableau, and Astrato</li>
+            <li>Designing Streamlit data applications with embedded rule builders and SQL compilers</li>
+            <li>Real-time analytics tools enabling non-technical users to explore and filter data on demand</li>
+            <li>CRM-integrated dashboards for customer service KPI tracking and workflow optimization</li>
+            <li>Visualization of scientific publication rankings across national and international datasets</li>
+          </ul>
+        </div>
+        <div class="ec-foot">
+          <span class="ec-tag">Power BI</span><span class="ec-tag">Tableau</span><span class="ec-tag">Astrato</span>
+          <span class="ec-tag">Streamlit</span><span class="ec-tag">Real-time KPIs</span><span class="ec-tag">BI Architecture</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW I WORK ── -->
+<section id="howiwork" style="padding-top:0">
+  <div class="con">
+    <div class="rv">
+      <span class="sn">02 — How I Work</span>
+      <h2 class="st">Tech that answers<br>to the business.</h2>
+      <p class="ss">Great AI isn't the most sophisticated model — it's the one that solves the problem the business actually has. That's how I work, end to end.</p>
+    </div>
+    <div class="hw rv">
+      <div class="hw-card">
+        <div class="hw-step">STEP 01</div>
+        <div class="hw-t">Understand the business</div>
+        <div class="hw-d">I start with stakeholders, not code. I run discovery sessions and workshops to learn the real problem, the constraints, and what success looks like in business terms — before a single line is written.</div>
+      </div>
+      <div class="hw-card">
+        <div class="hw-step">STEP 02</div>
+        <div class="hw-t">Engineer the solution</div>
+        <div class="hw-d">Then I bring the technical depth — AI agents, LLM pipelines, ETL systems, full-stack apps. I translate fuzzy business needs into precise, scalable technical specifications and ship them to production.</div>
+      </div>
+      <div class="hw-card">
+        <div class="hw-step">STEP 03</div>
+        <div class="hw-t">Drive adoption &amp; impact</div>
+        <div class="hw-d">A system nobody uses has no value. I deliver demos, build tools non-technical users can run themselves, align outputs to KPIs, and make sure the work actually moves the business forward.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="con">
+    <div class="about-grid">
+      <div class="ac rv">
+        <span class="sn">03 — About</span>
+        <h2 class="st">Where business<br>meets technology.</h2>
+        <br>
+        <p>I'm a <strong>Senior AI Engineer</strong> based in Casablanca, Morocco — but I don't just write code. What sets my work apart is the ability to sit in a room with business stakeholders, understand what they actually need, and translate it into AI and data systems that solve the real problem.</p>
+        <p>At <strong>TELUS Digital</strong> I design and deploy production AI copilots and autonomous agents, but just as importantly I run <strong>demos, workshops, and stakeholder sessions</strong> that drive adoption across operations, product, and engineering teams. Previously at <strong>Value Driven Data</strong>, I built LLM analytics platforms and BI dashboards that let <strong>non-technical users query business data and simulate scenarios on their own</strong> — turning complex data into decisions people could act on without an engineer in the loop.</p>
+        <p>I move fluently between both worlds: writing the ETL pipeline and explaining its business impact to a director; building the model and aligning it to a KPI. My research background — a deep learning internship at <strong>ISIR, Sorbonne Université, Paris</strong> and a generative AI internship at the <strong>University of Luxembourg</strong> — gives me the technical depth, while years of client and stakeholder work give me the business fluency.</p>
+        <p>I hold a <strong>Specialized Master in Data Science</strong> from FSSM Marrakech and care most about building AI that creates measurable business value — not technology for its own sake.</p>
+      </div>
+      <div class="rv" style="transition-delay:.1s">
+        <div class="aright">
+          <div class="ib">
+            <div class="ibl">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Certifications
+            </div>
+            <div class="clist">
+              <div class="ci">Python for Data Science, AI &amp; Development — IBM</div>
+              <div class="ci">Machine Learning &amp; Deep Learning</div>
+              <div class="ci">Django Web Framework</div>
+              <div class="ci">Programming in Python</div>
+              <div class="ci">APIs</div>
+            </div>
+          </div>
+          <div class="ib">
+            <div class="ibl">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              Languages
+            </div>
+            <div class="llist">
+              <span class="ltag">Arabic — Native</span>
+              <span class="ltag">English — Fluent</span>
+              <span class="ltag">French — Professional</span>
+            </div>
+          </div>
+          <div class="ib">
+            <div class="ibl">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+              Hobbies
+            </div>
+            <div class="hlist">
+              <span class="htag">Photography</span>
+              <span class="htag">Football</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPERIENCE ── -->
+<section id="experience">
+  <div class="con">
+    <div class="rv">
+      <span class="sn">04 — Experience</span>
+      <h2 class="st">Where I've worked</h2>
+      <p class="ss">Five roles across AI, data engineering, full-stack development, and research — in Morocco, Paris, Luxembourg, and remotely for Dubai.</p>
+    </div>
+    <div class="tl">
+      <div class="tll"></div>
+
+      <div class="tli rv">
+        <div class="tldw"><div class="tld on"></div></div>
+        <div class="tlc">
+          <div class="jh"><div class="jt">Senior AI Engineer</div><div class="jp">Dec 2025 — Present</div></div>
+          <div class="jc">TELUS Digital</div>
+          <div class="jl"><svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Casablanca, Morocco · Hybrid</div>
+          <ul class="jb">
+            <li>Architect and deploy AI copilots and autonomous agents enhancing customer support workflows and agent productivity</li>
+            <li>Lead prompt engineering (few-shot, CoT, RAG) to optimize LLM accuracy and relevance in production environments</li>
+            <li>Integrate LLM systems with CRM and backend platforms via REST APIs for seamless AI-assisted operations</li>
+            <li>Drive cross-functional collaboration across product, operations, and engineering; lead workshops to accelerate AI adoption</li>
+            <li>Establish performance monitoring frameworks and continuously optimize systems based on real-world usage</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tli rv">
+        <div class="tldw"><div class="tld am"></div></div>
+        <div class="tlc">
+          <div class="jh"><div class="jt">Senior AI Engineer &amp; Data Scientist</div><div class="jp">May 2024 — Dec 2025</div></div>
+          <div class="jc">Value Driven Data</div>
+          <div class="jl"><svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Dubai, UAE · Remote</div>
+          <ul class="jb">
+            <li>Led the Morocco data &amp; AI team — daily standups, sprint planning, Jira task assignment, and unblocking delivery</li>
+            <li>Built custom LLM-powered analytics assistants for natural language querying (LangChain, OpenAI APIs)</li>
+            <li>Designed large-scale ETL pipelines on Snowflake and Databricks ingesting from APIs, web scraping, and CRM sources</li>
+            <li>Developed Streamlit apps with embedded rule builders and SQL compilers for non-technical business users</li>
+            <li>Created real-time KPI dashboards in Power BI, Tableau, and Astrato; integrated CRM platforms with analytics tools</li>
+            <li>Optimized generative AI prompts using zero-shot, few-shot, and chain-of-thought techniques</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tli rv">
+        <div class="tldw"><div class="tld"></div></div>
+        <div class="tlc">
+          <div class="jh"><div class="jt">IT Manager &amp; Full Stack Developer</div><div class="jp">2022 — 2024</div></div>
+          <div class="jc">Eurekali / Alistair &amp; Adam</div>
+          <div class="jl"><svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Fez, Morocco · Hybrid</div>
+          <ul class="jb">
+            <li>Led end-to-end development of a global shipping platform — transporter integrations, payment systems, and real-time tracking (Vue.js, Django, PostgreSQL)</li>
+            <li>Built real-time chat and video communication features for live logistics coordination</li>
+            <li>Managed project lifecycle, cross-functional teams, and API integrations between AI tools, CRM, and data platforms</li>
+            <li>Implemented accounting and operational modules, improving overall system efficiency</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tli rv">
+        <div class="tldw"><div class="tld pu"></div></div>
+        <div class="tlc">
+          <div class="jh"><div class="jt">Deep Learning Engineer — Research Intern</div><div class="jp">Apr — Oct 2022</div></div>
+          <div class="jc">ISIR (Sorbonne Université) · Muséum National d'Histoire Naturelle</div>
+          <div class="jl"><svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Paris, France</div>
+          <ul class="jb">
+            <li>Researched and built an explainable AI model classifying 95+ botanical species from herbarium images using <strong>Vision Transformers (ViT)</strong> and CNN architectures</li>
+            <li>Applied Grad-CAM and attention-based explainability to make Vision Transformer decisions interpretable for MNHN researchers</li>
+            <li>Delivered a high-performance model in a scalable inference pipeline for academic research use</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tli rv">
+        <div class="tldw"><div class="tld pu"></div></div>
+        <div class="tlc">
+          <div class="jh"><div class="jt">Artificial Intelligence Developer — Intern</div><div class="jp">Jan — Jun 2022</div></div>
+          <div class="jc">University of Luxembourg · Department of Computer Science</div>
+          <div class="jl"><svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Luxembourg</div>
+          <ul class="jb">
+            <li>Built a <strong>generative AI system that creates original artistic images from text prompts</strong>, combining CLIP and VQGAN (GANs + Transformers)</li>
+            <li>Integrated the model into an interactive web interface for user-driven image generation and customization; published results and code for academic review</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SKILLS ── -->
+<section id="skills">
+  <div class="con">
+    <div class="rv">
+      <span class="sn">05 — Skills</span>
+      <h2 class="st">Technical skills</h2>
+      <p class="ss">Comprehensive across the full stack — from model training to production deployment, data pipelines to user-facing dashboards.</p>
+    </div>
+    <div class="sk-table rv">
+
+      <div class="sk-row">
+        <div class="sk-cat"><span class="sk-dot" style="background:var(--ind)"></span>AI &amp; LLM Engineering</div>
+        <div class="sk-tags">
+          <span class="sk-tag">AI Agents</span><span class="sk-tag">Copilots</span><span class="sk-tag">Large Language Models</span>
+          <span class="sk-tag">Generative AI</span><span class="sk-tag">RAG</span><span class="sk-tag">LangChain</span>
+          <span class="sk-tag">LangGraph</span><span class="sk-tag">OpenAI APIs</span><span class="sk-tag">Prompt Engineering</span>
+          <span class="sk-tag">Few-Shot / CoT</span><span class="sk-tag">Model Deployment</span><span class="sk-tag">Inference Optimization</span>
+        </div>
+      </div>
+
+      <div class="sk-row">
+        <div class="sk-cat"><span class="sk-dot" style="background:var(--rose)"></span>Machine Learning</div>
+        <div class="sk-tags">
+          <span class="sk-tag">Deep Learning</span><span class="sk-tag">NLP</span><span class="sk-tag">Computer Vision</span>
+          <span class="sk-tag">Medical Imaging</span><span class="sk-tag">CNN</span><span class="sk-tag">U-Net</span>
+          <span class="sk-tag">Vision Transformers</span><span class="sk-tag">GANs</span><span class="sk-tag">Transformers</span>
+          <span class="sk-tag">Explainable AI</span><span class="sk-tag">Grad-CAM</span><span class="sk-tag">scikit-learn</span>
+          <span class="sk-tag">OpenCV</span><span class="sk-tag">TensorFlow</span><span class="sk-tag">PyTorch</span>
+        </div>
+      </div>
+
+      <div class="sk-row">
+        <div class="sk-cat"><span class="sk-dot" style="background:var(--amb)"></span>Data Engineering</div>
+        <div class="sk-tags">
+          <span class="sk-tag">ETL Pipelines</span><span class="sk-tag">Snowflake</span><span class="sk-tag">Databricks</span>
+          <span class="sk-tag">Web Scraping</span><span class="sk-tag">Data Modeling</span><span class="sk-tag">Data Preprocessing</span>
+          <span class="sk-tag">Data Quality</span><span class="sk-tag">REST APIs</span><span class="sk-tag">CRM Integrations</span>
+          <span class="sk-tag">SQL</span>
+        </div>
+      </div>
+
+      <div class="sk-row">
+        <div class="sk-cat"><span class="sk-dot" style="background:var(--grn)"></span>Software Engineering</div>
+        <div class="sk-tags">
+          <span class="sk-tag">Python</span><span class="sk-tag">JavaScript</span><span class="sk-tag">FastAPI</span>
+          <span class="sk-tag">Flask</span><span class="sk-tag">Django</span><span class="sk-tag">Streamlit</span>
+          <span class="sk-tag">Vue.js</span><span class="sk-tag">PostgreSQL</span><span class="sk-tag">Docker</span>
+          <span class="sk-tag">DigitalOcean</span><span class="sk-tag">Git</span><span class="sk-tag">Jupyter</span>
+        </div>
+      </div>
+
+      <div class="sk-row">
+        <div class="sk-cat"><span class="sk-dot" style="background:var(--pur)"></span>Visualization &amp; BI</div>
+        <div class="sk-tags">
+          <span class="sk-tag">Power BI</span><span class="sk-tag">Tableau</span><span class="sk-tag">Astrato</span>
+          <span class="sk-tag">Streamlit Dashboards</span><span class="sk-tag">Interactive KPIs</span>
+          <span class="sk-tag">Real-time Analytics</span><span class="sk-tag">Data Storytelling</span>
+        </div>
+      </div>
+
+      <div class="sk-row">
+        <div class="sk-cat"><span class="sk-dot" style="background:var(--dim)"></span>Business &amp; Collaboration</div>
+        <div class="sk-tags">
+          <span class="sk-tag">Requirements Translation</span><span class="sk-tag">Stakeholder Workshops</span>
+          <span class="sk-tag">Demos &amp; Presentations</span><span class="sk-tag">Solution Design</span>
+          <span class="sk-tag">KPI Alignment</span><span class="sk-tag">Cross-functional Teams</span>
+          <span class="sk-tag">Agile / Scrum</span><span class="sk-tag">Jira</span>
+          <span class="sk-tag">Mentoring</span><span class="sk-tag">Remote Coordination</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── PROJECTS ── -->
+<section id="projects">
+  <div class="con">
+    <div class="rv">
+      <span class="sn">06 — Selected Work</span>
+      <h2 class="st">What I've shipped</h2>
+      <p class="ss">Production systems built for real businesses — AI copilots, analytics platforms, data pipelines, and full-stack applications used by real teams.</p>
+    </div>
+    <div class="pg">
+      <div class="pc rv">
+        <div class="pn">01 — TELUS DIGITAL · PRODUCTION</div>
+        <h3 class="pt">AI Copilots for Customer Support</h3>
+        <p class="pd">Production AI copilots and autonomous agents that assist customer support teams in real time — surfacing answers, automating workflows, and improving response consistency. Integrated with CRM and backend systems via APIs.</p>
+        <div class="ptg"><span class="ptk">AI Agents</span><span class="ptk">LangChain</span><span class="ptk">RAG</span><span class="ptk">CRM Integration</span><span class="ptk">Prompt Engineering</span></div>
+      </div>
+
+      <div class="pc rv">
+        <div class="pn">02 — VALUE DRIVEN DATA · PRODUCTION</div>
+        <h3 class="pt">LLM Analytics Assistant</h3>
+        <p class="pd">A natural-language analytics assistant letting business users query complex data without SQL. Integrated an LLM with a live SQL engine and backend systems, dramatically reducing time-to-insight for non-technical stakeholders.</p>
+        <div class="ptg"><span class="ptk">LangChain</span><span class="ptk">OpenAI APIs</span><span class="ptk">Python</span><span class="ptk">SQL</span><span class="ptk">Streamlit</span></div>
+      </div>
+
+      <div class="pc rv">
+        <div class="pn">03 — VALUE DRIVEN DATA · PRODUCTION</div>
+        <h3 class="pt">Self-Serve Scenario Simulator</h3>
+        <p class="pd">A Streamlit application with an embedded rule builder and SQL compiler, empowering non-technical business users to model "what-if" scenarios and generate dynamic queries on their own — no engineer required.</p>
+        <div class="ptg"><span class="ptk">Streamlit</span><span class="ptk">Python</span><span class="ptk">SQL Compiler</span><span class="ptk">Rule Engine</span></div>
+      </div>
+
+      <div class="pc rv">
+        <div class="pn">04 — VALUE DRIVEN DATA · PRODUCTION</div>
+        <h3 class="pt">Enterprise ETL &amp; BI Platform</h3>
+        <p class="pd">End-to-end data platform: large-scale ETL pipelines on Snowflake and Databricks ingesting from APIs, web scraping, and CRM, feeding real-time, low-latency KPI dashboards in Power BI, Tableau, and Astrato.</p>
+        <div class="ptg"><span class="ptk">Snowflake</span><span class="ptk">Databricks</span><span class="ptk">Power BI</span><span class="ptk">Tableau</span><span class="ptk">Astrato</span></div>
+      </div>
+
+      <div class="pc rv">
+        <div class="pn">05 — EUREKALI · PRODUCTION</div>
+        <h3 class="pt">Global Shipping Platform</h3>
+        <p class="pd">A full-stack logistics platform with worldwide transporter integrations, payment processing, real-time tracking, and built-in chat &amp; video. Led the project end to end, from architecture to deployment.</p>
+        <div class="ptg"><span class="ptk">Vue.js</span><span class="ptk">Django</span><span class="ptk">PostgreSQL</span><span class="ptk">REST APIs</span><span class="ptk">DigitalOcean</span></div>
+      </div>
+
+      <div class="pc rv">
+        <div class="pn">06 — RESEARCH · SORBONNE &amp; LUXEMBOURG</div>
+        <h3 class="pt">Vision Transformers &amp; Generative AI</h3>
+        <p class="pd">Research-grade deep learning: an explainable Vision Transformer classifying 95+ species at Sorbonne / MNHN Paris, and a generative AI system creating original artistic images from text prompts at the University of Luxembourg.</p>
+        <div class="ptg"><span class="ptk">Vision Transformers</span><span class="ptk">Generative AI</span><span class="ptk">CLIP + VQGAN</span><span class="ptk">Grad-CAM</span><span class="ptk">PyTorch</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="con">
+    <div class="rv"><span class="sn">07 — Contact</span><h2 class="st">Let's work together</h2></div>
+    <div class="cg">
+      <div class="ccp rv">
+        <p>I'm open to senior AI engineering roles, data engineering positions, consulting opportunities, and impactful AI or data platform projects. If you're building something serious — let's talk.</p>
+        <div class="clinks">
+          <a href="mailto:ayoub.oumalek.dz@gmail.com" class="cl2">
+            <div class="ci2"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div class="ct"><strong>Email</strong><span>ayoub.oumalek.dz@gmail.com</span></div>
+          </a>
+          <a href="https://www.linkedin.com/in/ayoub-oumalek-9a9b031b6/" target="_blank" class="cl2">
+            <div class="ci2"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+            <div class="ct"><strong>LinkedIn</strong><span>linkedin.com/in/ayoub-oumalek</span></div>
+          </a>
+          <a href="tel:+212653418327" class="cl2">
+            <div class="ci2"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.15 6.15l1.76-1.76a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div class="ct"><strong>Phone</strong><span>+212 6 53 41 83 27</span></div>
+          </a>
+          <div class="cl2" style="cursor:default">
+            <div class="ci2"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div class="ct"><strong>Location</strong><span>Casablanca, Morocco · Open to Remote</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="cn rv" style="transition-delay:.1s">
+        <div class="avail"><span class="adot"></span>Available for new opportunities</div>
+        <h3>Ready to build something that matters?</h3>
+        <p>Whether you need an AI engineer, a data architect, or someone who can lead a technical team end-to-end — I bring both the depth and the breadth to deliver.</p>
+        <a href="mailto:ayoub.oumalek.dz@gmail.com" class="bf" style="display:inline-flex">
+          Send me a message
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 <span>Ayoub Oumalek</span> · All rights reserved · Designed &amp; built by Ayoub Oumalek · Casablanca, Morocco</p>
+  <div class="fl">
+    <a href="mailto:ayoub.oumalek.dz@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/ayoub-oumalek-9a9b031b6/" target="_blank">LinkedIn</a>
+    <a href="#hero">↑ Top</a>
+  </div>
+</footer>
+
+<script>
+// Design protection — deters casual copying; contact info stays usable
+(function(){
+  const allowCopy=el=>el&&el.closest('a,.cl2,.ct,footer,[href^="mailto:"],[href^="tel:"]');
+  document.addEventListener('contextmenu',e=>{if(!allowCopy(e.target))e.preventDefault()});
+  document.addEventListener('copy',e=>{if(!allowCopy(e.target))e.preventDefault()});
+  document.addEventListener('dragstart',e=>{if(!allowCopy(e.target))e.preventDefault()});
+  console.log('%c© Ayoub Oumalek','color:#6366F1;font-size:16px;font-weight:bold');
+  console.log('%cThis portfolio design is protected. Unauthorized reproduction is prohibited.','color:#8A8A96;font-size:12px');
+})();
+
+// NAV
+window.addEventListener('scroll',()=>document.getElementById('nb').classList.toggle('sc',scrollY>40));
+
+// REVEAL
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const s=[...e.target.parentElement.querySelectorAll('.rv')];
+      const i=s.indexOf(e.target);
+      if(!e.target.style.transitionDelay)e.target.style.transitionDelay=i*.07+'s';
+      e.target.classList.add('vi');io.unobserve(e.target);
+    }
+  });
+},{threshold:.07,rootMargin:'0px 0px -24px 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// PROJECT GLOW
+document.querySelectorAll('.pc').forEach(c=>{
+  c.addEventListener('mousemove',e=>{
+    const r=c.getBoundingClientRect();
+    c.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
+    c.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
+  });
+});
+
+// TERMINAL — shows all 4 domains
+const lines=[
+  {k:'cmd',t:'whoami --profile'},
+  {k:'out',t:'Ayoub Oumalek · Senior AI Engineer',d:300},
+  {k:'out',t:'TELUS Digital · Casablanca, Morocco',d:80},
+  {k:'gap',d:280},
+  {k:'cmd',t:'ls ~/expertise/',d:160},
+  {k:'ai', t:'ai-engineering/     data-engineering/',d:320},
+  {k:'sw', t:'software-dev/       data-visualization/',d:80},
+  {k:'gap',d:280},
+  {k:'cmd',t:'cat ~/stack.txt',d:160},
+  {k:'ai', t:'LLMs · LangChain · RAG · OpenAI APIs',d:320},
+  {k:'am', t:'ETL · Snowflake · Databricks · SQL',d:80},
+  {k:'gr', t:'Django · Vue.js · FastAPI · Docker',d:80},
+  {k:'pu', t:'Power BI · Tableau · Astrato · Streamlit',d:80},
+  {k:'gap',d:280},
+  {k:'cmd',t:'echo $STATUS',d:160},
+  {k:'ok', t:'● Open to senior opportunities',d:300},
+  {k:'cur',d:160}
+];
+
+const tb=document.getElementById('tb');
+let li=0;
+function next(){
+  if(!tb||li>=lines.length)return;
+  const ln=lines[li++];
+  if(ln.k==='gap'){setTimeout(next,ln.d||200);return;}
+  if(ln.k==='cur'){
+    const d=document.createElement('div');
+    d.innerHTML=`<span class="tp">$</span> <span class="tcur"></span>`;
+    tb.appendChild(d);return;
+  }
+  const d=document.createElement('div');
+  const colorMap={cmd:`<span class="tp">$</span> <span class="tc">${ln.t}</span>`,
+    out:`<span class="to">${ln.t}</span>`,
+    ai:`<span style="color:#A5B4FC">${ln.t}</span>`,
+    sw:`<span style="color:#86EFAC">${ln.t}</span>`,
+    am:`<span style="color:#FCD34D">${ln.t}</span>`,
+    pu:`<span style="color:#C4B5FD">${ln.t}</span>`,
+    gr:`<span style="color:#86EFAC">${ln.t}</span>`,
+    ok:`<span class="tog">${ln.t}</span>`};
+  d.innerHTML=colorMap[ln.k]||`<span class="to">${ln.t}</span>`;
+  tb.appendChild(d);
+  setTimeout(next,ln.d||90);
+}
+setTimeout(next,1100);
+</script>
+</body>
+</html>
